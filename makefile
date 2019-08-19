@@ -6,6 +6,7 @@ link_target = app.exe
 clean_files = $(obj_files) $(link_target)
 inc_path = .\Includes
 dep_path = .\Dependencise
+CFLAGS = -O2 -MD
 
 vpath %.c .\Src
 
@@ -15,9 +16,11 @@ vpath %.c .\Src
 clean :
 		rm $(clean_files)
 		
-$(link_target) : $(obj_files) $(obj2_files) $(dep_file)
+$(link_target) : $(obj_files) $(obj2_files)
 		$(cc) $^ -o $@
 
 
 %.d : %.c
 	$(cc) -M -I$(inc_path) $< -MF $(dep_path)\$@
+
+-include $(obj_files:.o=.d) $(obj2_files:.o=.d)
