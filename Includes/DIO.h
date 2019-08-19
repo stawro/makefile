@@ -2,5 +2,6 @@
 #define DIO_H
 #include<stdio.h>
 #include"code.h"
-void DIO_Write(void);
+#define t 3
+void DIO_Write(void)
 #endif

@@ -3,5 +3,6 @@
 #include<stdio.h>
 #include"LCD.h"
 #include"DIO.h"
-#define hello 5
+#define fucku 5
+
 #endif

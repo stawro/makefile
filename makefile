@@ -1,4 +1,6 @@
 cc = gcc
+src = main.c LCD.c DIO.c 
+hdr = main.h LCD.h DIO.h code.h
 obj_files = main.o DIO.o LCD.o
 dep_file = main.d DIO.d LCD.d 
 obj2_files = eldakhly-mina-stawro-yousef.o
@@ -12,6 +14,9 @@ vpath %.c .\Src
 
 %.o : %.c
 	$(cc) -c -I$(inc_path) $< -o $@
+	
+
+    
 
 clean :
 		rm $(clean_files)
@@ -23,4 +28,4 @@ $(link_target) : $(obj_files) $(obj2_files)
 %.d : %.c
 	$(cc) -M -I$(inc_path) $< -MF $(dep_path)\$@
 
--include $(obj_files:.o=.d) $(obj2_files:.o=.d)
+-include $(Src:.c=.d) $(obj_files:.o=.d) $(obj2_files:.o=.d) $(hdr:.h=.d)
