@@ -1,5 +1,6 @@
 cc = gcc
 obj_files = main.o DIO.o LCD.o
+dep_file = main.d DIO.d LCD.d 
 obj2_files = eldakhly-mina-stawro-yousef.o
 link_target = app.exe
 clean_files = $(obj_files) $(link_target)
@@ -14,5 +15,9 @@ vpath %.c .\Src
 clean :
 		rm $(clean_files)
 		
-$(link_target) : $(obj_files) $(obj2_files)
+$(link_target) : $(obj_files) $(obj2_files) $(dep_file)
 		$(cc) $^ -o $@
+
+
+%.d : %.c
+	$(cc) -M -I$(inc_path) $< -MF $(dep_path)\$@
