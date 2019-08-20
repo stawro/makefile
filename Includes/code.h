@@ -2,5 +2,4 @@
 #define CODE_H
 #include<stdio.h>
 void printMessage(void);
-#define x 5
 #endif

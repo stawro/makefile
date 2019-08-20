@@ -3,6 +3,5 @@
 #include<stdio.h>
 #include"LCD.h"
 #include"DIO.h"
-#define fucku 5
-
+//
 #endif
